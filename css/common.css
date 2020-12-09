@@ -34,6 +34,73 @@ figure > img {
   margin: 0 auto;
 }
 
+.f-symbol {
+  display: inline-block;
+  font-weight: 400;
+}
+
+.text-description {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+.text-description.small {
+  font-size: 1.7rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.box-item {
+  width: 100%;
+}
+
+.orange-color {
+  color: #F7781E;
+}
+
+.consultation-button {
+  width: 100%;
+  max-width: 35.7rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00A74D;
+  border: 2px solid #66ca94;
+  border-radius: 1rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #fff;
+}
+.consultation-button .icon-inside {
+  position: relative;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  border: 2px solid #66ca94;
+  background-color: #fff;
+  margin-left: 1.5rem;
+}
+.consultation-button .icon-inside::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-right: 2px solid #00A74D;
+  border-bottom: 2px solid #00A74D;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-70%, -50%) rotate(-45deg);
+}
+
 .nav {
   width: 100%;
   height: 5rem;
@@ -43,13 +110,23 @@ figure > img {
   position: relative;
   top: 8.5rem;
   left: 0;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+.nav::after {
+  content: "";
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
 }
 .nav.fixed {
   max-width: calc(100% - 5.4rem);
   position: fixed;
   left: 2.7rem;
+  z-index: 1024;
 }
 .nav-item {
   width: 100%;
@@ -74,6 +151,7 @@ figure > img {
   border-left: 10px solid #fff;
   border-right: 0;
   margin-right: 0.5rem;
+  border-radius: 2px;
 }
 .nav .nav-link:hover {
   opacity: 0.7;
