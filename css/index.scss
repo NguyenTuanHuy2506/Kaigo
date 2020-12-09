@@ -154,6 +154,14 @@ sans-serif;
         &.has-background {
             background-color: #FFF9DF;
         }
+        &.center {
+            text-align: center;
+            .consultation-button {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3rem;
+            }
+        }
         .box {
             &-item {
                 max-width: calc(50% - 30px);
@@ -198,6 +206,7 @@ sans-serif;
                 }
                 &+.consultation-button {
                     margin-top: 5rem;
+                    margin-bottom: 6.5rem;
                 }
             }
         }
@@ -412,6 +421,115 @@ sans-serif;
                         }
                     }
                 }
+                &.item6 {
+                    padding: 2rem 4rem 2.5rem 0;
+                    background-color: #fff;
+                    .avatar {
+                        max-width: 23rem;
+                        min-width: 23rem;
+                        display: block;
+                        position: relative;
+                        img {
+                            position: absolute;
+                            width: 23rem;
+                            top: 0;
+                            left: 0;
+                            transform: translate(-.8rem, -5rem);
+                        }
+                    }
+                    .content {
+                        .text-description {
+                            margin-top: 1.2rem;
+                        }
+                        .to-support {
+                            margin-top: 1.5rem;
+                            &.to-sup2 {
+                                border-color: #F7781E;
+                                color: #F7781E;
+                            }
+                        }
+                        .consultation-button {
+                            margin-top: 1.5rem;
+                        }
+                    }
+                }
+                &.item7 {
+                    flex-wrap: wrap;
+                    padding: 2rem 4rem 2.5rem 0;
+                    background-color: #fff;
+                    .content {
+                        width: 100%;
+                        display: flex;
+                        .avatar {
+                            width: 100%;
+                            min-width: 22rem;
+                            max-width: 22rem;
+                            min-height: 16rem;
+                            display: block;
+                            position: relative;
+                            img {
+                                position: absolute;
+                                width: 23rem;
+                                top: 0;
+                                left: 0;
+                                transform: translate(-1rem, -7.2rem);
+                            }
+                            &+div {}
+                        }
+                        .text-description {
+                            margin-top: 1rem;
+                        }
+                    }
+                    .wrap {
+                        width: 100%;
+                        max-width: 84rem;
+                        margin: 0 auto;
+                        &-title {
+                            height: 3.2rem;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            background-color: #F7781E;
+                            border-radius: 2rem;
+                            figure {
+                                width: 100%;
+                                max-width: 4.4rem;
+                            }
+                            h4 {
+                                font-weight: 700;
+                                font-size: 2rem;
+                                font-family: $font_noto;
+                                color: #fff;
+                                margin-left: 2.5rem;
+                            }
+                        }
+                        .row {
+                            max-width: calc(100% - 75px);
+                            margin-left: auto;
+                            margin-bottom: 4.5rem;
+                            .column {
+                                p {
+                                    margin-top: 2rem;
+                                    font-family: $font_noto;
+                                    font-size: 1.7rem;
+                                    font-weight: 700;
+                                    color: #F7781E;
+                                }
+                                .link-list {
+                                    flex-direction: column;
+                                    margin-left: 2rem;
+                                    li {
+                                        padding: .4rem 0;
+                                    }
+                                    a {
+                                        padding-top: 0;
+                                        margin-left: 1.5rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -481,10 +599,11 @@ sans-serif;
             font-weight: 500;
             color: #F7781E;
             margin-right: 3.5rem;
+            margin-top: 2rem;
             &::after {
                 content: '';
-                width: 5.1rem;
-                height: 5.1rem;
+                width: 5rem;
+                height: 5rem;
                 display: block;
                 // border-top: 4px solid transparent;
                 border-top: 4px solid #F7781E;
