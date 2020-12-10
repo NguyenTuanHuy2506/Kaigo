@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "./functions.scss";
 $font_noto:'Noto Sans JP',
 sans-serif;
 .hero {
@@ -6,6 +7,7 @@ sans-serif;
     position: relative;
     &-image {
         width: 100%;
+        height: 100%;
         position: relative;
         &::after {
             content: '';
@@ -27,6 +29,11 @@ sans-serif;
             left: 50%;
             transform: translateX(-50%);
         }
+        @include screen1400 {
+            .img-grand {
+                max-width: 24vw;
+            }
+        }
     }
     .content {
         width: 100%;
@@ -34,7 +41,7 @@ sans-serif;
         position: absolute;
         top: 0;
         left: 0;
-        h1>figure {
+        h1 {
             width: 100%;
             max-width: 82.2rem;
             bottom: 18vw;
@@ -87,6 +94,56 @@ sans-serif;
                     }
                 }
             }
+            @include mobile {
+                position: fixed;
+                z-index: 1030;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: none;
+                padding: 2rem;
+                background-color: rgba(#fff, 0);
+                transition: all .3s ease;
+                ul {
+                    width: 100%;
+                    // max-width: 375px;
+                    margin-top: 5.2rem;
+                    flex-direction: column;
+                    li {
+                        >a {
+                            margin: .5rem 0;
+                            border-radius: .8rem;
+                        }
+                    }
+                }
+                &.active {
+                    display: block;
+                    background-color: rgba(#fff, 1);
+                }
+            }
+        }
+        @include screen1400 {
+            h1 {
+                max-width: 58.7vw;
+            }
+        }
+    }
+    @include near_mobile {
+        height: 500px;
+        &-image {
+            .hero-bg {
+                height: 100%;
+                object-fit: cover;
+            }
+            .img-grand {
+                max-width: 30rem;
+            }
+        }
+        .content {
+            h1 {
+                max-width: 30rem;
+                bottom: 23rem;
+            }
         }
     }
 }
@@ -105,9 +162,30 @@ sans-serif;
             width: 100%;
             h3 {
                 font-size: 3rem;
+                line-height: 1.4;
                 color: #000;
                 &+.custom-hr {
                     margin-top: 1.5rem;
+                }
+            }
+        }
+    }
+    @include screen1400 {
+        .item {
+            .content {
+                h3 {
+                    font-size: 2.142vw;
+                }
+            }
+        }
+    }
+    @include mobile {
+        .item {
+            flex-direction: column;
+            align-items: center;
+            .content {
+                h3 {
+                    font-size: 1.6rem;
                 }
             }
         }
@@ -123,6 +201,10 @@ sans-serif;
         display: inline-block;
         margin-right: 1rem;
         padding: .5rem 0;
+        transition: all .3s ease;
+        &:hover {
+            opacity: .75;
+        }
         &::after {
             content: '';
             display: inline-block;
@@ -151,6 +233,8 @@ sans-serif;
     width: 100%;
     &-box {
         padding-top: 6rem;
+        position: relative;
+        z-index: 1;
         &.has-background {
             background-color: #FFF9DF;
         }
@@ -160,6 +244,12 @@ sans-serif;
                 margin-left: auto;
                 margin-right: auto;
                 margin-top: 3rem;
+                .icon-inside {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(-2.5rem, -50%);
+                }
             }
         }
         .box {
@@ -169,6 +259,9 @@ sans-serif;
                 border-radius: 1rem;
                 padding: 2.5rem;
                 margin-top: 6.5rem;
+                @include mobile {
+                    max-width: 100%;
+                }
                 .title {
                     font-size: 1.7rem;
                     color: #F7781E;
@@ -228,6 +321,11 @@ sans-serif;
                     margin-top: 1.2rem;
                     margin-bottom: 1.2rem;
                 }
+                @include mobile {
+                    &-item {
+                        font-size: 1.4rem;
+                    }
+                }
             }
             .item {
                 &.item1 {
@@ -237,6 +335,7 @@ sans-serif;
                     .avatar {
                         max-width: 23rem;
                         min-width: 23rem;
+                        min-height: 23rem;
                         position: relative;
                         margin-right: 3rem;
                         img {
@@ -254,14 +353,30 @@ sans-serif;
                             margin-top: .5rem;
                         }
                     }
+                    @include mobile {
+                        padding: 2rem;
+                        .avatar {
+                            min-height: 15rem;
+                            margin: 0 auto;
+                        }
+                        .content {
+                            .link-list {
+                                flex-direction: column;
+                            }
+                        }
+                    }
                 }
                 &.item2 {
                     max-width: calc(50% - 16px);
                     padding: 2rem 4rem 2.5rem 0;
                     background-color: #fff;
+                    @include mobile {
+                        max-width: calc(50% - 5px);
+                    }
                     .avatar {
                         max-width: 17rem;
                         min-width: 17rem;
+                        // height: 17rem;
                         position: relative;
                         img {
                             position: absolute;
@@ -280,11 +395,26 @@ sans-serif;
                             margin-top: .5rem;
                         }
                     }
+                    @include mobile {
+                        padding: 1rem;
+                        .avatar {
+                            max-width: 100%;
+                            img {
+                                width: 100%;
+                                position: static;
+                                transform: translate(0, 0);
+                            }
+                        }
+                    }
                 }
                 &.item3 {
                     max-width: calc(50% - 16px);
                     border: 0;
+                    @include mobile {
+                        max-width: calc(50% - 5px);
+                    }
                     .item-inside {
+                        width: 100%;
                         .inside {
                             padding: 3rem 2rem 3rem 0;
                             border: 2px solid #F7781E;
@@ -294,8 +424,8 @@ sans-serif;
                             .avatar {
                                 max-width: 16.5rem;
                                 min-width: 16.5rem;
+                                min-height: 16.5rem;
                                 margin-right: 0;
-                                ;
                                 img {
                                     width: 23rem;
                                     display: block;
@@ -304,13 +434,40 @@ sans-serif;
                             }
                             &.inside2 {
                                 padding: 1.5rem 1rem 1.5rem 1rem;
-                                text-align: center;
+                                justify-content: center;
                                 border-color: #766f63;
                                 p {
                                     font-size: 3rem;
                                     font-weight: 700;
                                     color: #000;
                                     line-height: 1;
+                                }
+                                @include screen1400 {
+                                    p {
+                                        font-size: 2.142vw;
+                                    }
+                                }
+                                @include mobile {
+                                    padding: 1rem;
+                                    p {
+                                        font-size: 1.4rem;
+                                        line-height: 1.4;
+                                    }
+                                }
+                            }
+                            @include mobile {
+                                padding: 1rem;
+                                flex-direction: column;
+                                align-items: center;
+                                .avatar {
+                                    min-height: 17rem;
+                                    max-width: 100%;
+                                    min-width: 1px;
+                                    img {
+                                        position: static;
+                                        width: 100%;
+                                        transform: translate(0, 0);
+                                    }
                                 }
                             }
                         }
@@ -364,6 +521,7 @@ sans-serif;
                         .support-list {
                             width: 100%;
                             display: flex;
+                            flex-wrap: wrap;
                             justify-content: space-between;
                             padding-left: 1rem;
                             a {
@@ -374,9 +532,14 @@ sans-serif;
                                 border-radius: 1rem;
                                 font-size: 1.7rem;
                                 font-weight: 700;
+                                margin-top: 2rem;
                                 display: flex;
                                 flex-direction: column;
                                 align-items: center;
+                                transition: all .3s ease;
+                                &:hover {
+                                    opacity: .75;
+                                }
                                 span {
                                     font-size: 2.2rem;
                                     display: block;
@@ -395,6 +558,18 @@ sans-serif;
                                 }
                                 &.sup2 {}
                             }
+                            @include near_mobile {
+                                padding: 0;
+                                a {
+                                    width: calc((100% / 4) - 4px);
+                                }
+                            }
+                        }
+                    }
+                    @include mobile {
+                        padding: 2rem;
+                        .avatar {
+                            min-height: 20rem;
                         }
                     }
                 }
@@ -419,6 +594,16 @@ sans-serif;
                         .link-list {
                             margin-top: .5rem;
                         }
+                    }
+                    @include mobile {
+                        padding: 2rem;
+                        .avatar {
+                            img {
+                                position: static;
+                                transform: translate(0, 0);
+                            }
+                        }
+                        .content {}
                     }
                 }
                 &.item6 {
@@ -452,11 +637,22 @@ sans-serif;
                             margin-top: 1.5rem;
                         }
                     }
+                    @include mobile {
+                        padding: 2rem;
+                        .avatar {
+                            img {
+                                position: static;
+                                transform: translate(0, 0);
+                            }
+                        }
+                        .content {}
+                    }
                 }
                 &.item7 {
                     flex-wrap: wrap;
                     padding: 2rem 4rem 2.5rem 0;
                     background-color: #fff;
+                    margin-bottom: 7rem;
                     .content {
                         width: 100%;
                         display: flex;
@@ -520,6 +716,7 @@ sans-serif;
                                     margin-left: 2rem;
                                     li {
                                         padding: .4rem 0;
+                                        line-height: 1.4;
                                     }
                                     a {
                                         padding-top: 0;
@@ -529,19 +726,38 @@ sans-serif;
                             }
                         }
                     }
+                    @include mobile {
+                        padding: 2rem;
+                        .content {
+                            flex-direction: column;
+                            .avatar {
+                                margin: 0 auto;
+                                img {
+                                    position: static;
+                                    transform: translate(0, 0);
+                                }
+                            }
+                        }
+                        .wrap {
+                            .row {
+                                max-width: 100%;
+                                flex-wrap: wrap;
+                                .column {}
+                            }
+                        }
+                    }
                 }
             }
         }
     }
     &-title {
         width: 100%;
-        height: 7rem;
+        min-height: 7rem;
         background-color: #f99245;
         border-radius: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
         box-shadow: 0 10px 5px -5px #7c796d; //rgba(#000, .5);
         position: relative;
         &::after,
@@ -578,6 +794,33 @@ sans-serif;
             font-weight: 700;
             font-size: 3.8rem;
             color: #fff;
+            z-index: 12;
+        }
+        @include screen1400 {
+            min-height: 5vw;
+            .title {
+                font-size: 2.715vw;
+            }
+        }
+        @include ipadpro {
+            max-width: calc(100% - 7.8125vw);
+            margin: 0 auto;
+        }
+        @include mobile {
+            max-width: calc(100%);
+            figure {
+                >img {
+                    max-width: 6rem;
+                }
+            }
+        }
+        @include near_mobile {
+            .title {
+                padding: .5rem .5rem .5rem 6rem;
+                // padding-left: 6rem;
+                line-height: 1.4;
+                font-size: 1.8rem;
+            }
         }
     }
     .intro {
@@ -586,13 +829,13 @@ sans-serif;
         .tag-title {
             min-width: 22.5rem;
             height: 6.7rem;
-            // display: flex;
-            // align-items: center;
+            display: flex;
+            align-items: center;
             border: 3px solid #F7781E;
             border-radius: .8rem;
             position: relative;
             background-color: #fff;
-            padding: 1rem 3rem 0 4rem;
+            padding: 0 3rem 0 4rem;
             font-family: $font_noto;
             font-size: 3.5rem;
             color: #1A1A1A;
@@ -629,6 +872,47 @@ sans-serif;
             margin-top: 4rem;
             line-height: 1.6;
             letter-spacing: .2rem;
+        }
+        @include screen1400 {
+            margin-top: 5.357vw;
+            p {
+                font-size: 2.5vw;
+            }
+            .tag-title {
+                min-width: 16.07vw;
+                height: 4.785vw;
+                font-size: 2.5vw;
+                margin-top: 1.428vw;
+                margin-right: 2.5vw;
+                &::after {
+                    width: 3.57vw;
+                    height: 3.57vw;
+                }
+            }
+        }
+        @include near_mobile {
+            margin-top: 3rem;
+            flex-direction: column;
+            p {
+                font-size: 1.4rem;
+                line-height: 1.4;
+                br {
+                    display: none;
+                }
+            }
+            .tag-title {
+                min-width: 16.07vw;
+                height: auto;
+                font-size: 1.6rem;
+                padding: 0.5rem 1rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                margin-right: 0;
+                justify-content: center;
+                &::after {
+                    display: none;
+                }
+            }
         }
     }
     .decor.feature-decor {

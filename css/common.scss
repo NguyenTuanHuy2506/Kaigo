@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "./functions.scss";
 body {
     /* font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ ゴシック", sans-serif; */
     font-family: 'Noto Sans JP', sans-serif;
@@ -8,6 +9,9 @@ body {
     margin: 0 auto;
     display: block;
     background-color: #fff;
+    @include ipadpro {
+        padding: 2rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -34,6 +38,9 @@ figure>img {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    @include ipadpro {
+        padding: 0 1rem;
+    }
 }
 
 $font_noto: 'Noto Sans JP',
@@ -50,6 +57,19 @@ sans-serif;
     font-weight: 400;
     &.small {
         font-size: 1.7rem;
+    }
+    &.tiny {
+        font-size: 1.4rem;
+    }
+    @include ipadpro {
+        font-size: 1.643vw;
+    }
+    @include mobile {
+        font-size: 1.4rem;
+        &.small,
+        &.tiny {
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -76,7 +96,7 @@ sans-serif;
 }
 
 .to-support {
-    height: 4rem;
+    min-height: 4rem;
     display: inline-flex;
     align-items: center;
     border: .1rem solid #00A74D;
@@ -86,6 +106,9 @@ sans-serif;
     font-weight: 700;
     font-size: 2.5rem;
     padding: 0 1.5rem;
+    @include mobile {
+        font-size: 1.6rem;
+    }
 }
 
 .orange-color {
@@ -95,7 +118,7 @@ sans-serif;
 .consultation-button {
     width: 100%;
     max-width: 35.7rem;
-    height: 5rem;
+    min-height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,6 +128,11 @@ sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
     color: #fff;
+    position: relative;
+    transition: all .5s ease;
+    &:hover {
+        opacity: .75;
+    }
     .icon-inside {
         position: relative;
         width: 3.2rem;
@@ -126,11 +154,14 @@ sans-serif;
             transform: translate(-70%, -50%) rotate(-45deg);
         }
     }
+    @include mobile {
+        font-size: 1.4rem;
+    }
 }
 
 .nav {
     width: 100%;
-    height: 5rem;
+    min-height: 5rem;
     display: flex;
     align-items: center;
     background-color: #F7781E;
@@ -139,6 +170,7 @@ sans-serif;
     left: 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
+    transition: all .5s ease;
     &::after {
         content: '';
         width: 100%;
@@ -153,6 +185,9 @@ sans-serif;
         position: fixed;
         left: 2.7rem;
         z-index: 1024;
+    }
+    &.active {
+        transform: translateY(-8.5rem);
     }
     &-item {
         width: 100%;
@@ -180,6 +215,161 @@ sans-serif;
         }
         &:hover {
             opacity: .7;
+        }
+    }
+    @include screen1400 {
+        top: 6.07vw;
+        &.active {
+            transform: translateY(-6.07vw);
+        }
+        .nav-link {
+            font-size: 1.215vw;
+        }
+    }
+    @include ipadpro {
+        &.fixed {
+            max-width: calc(100% - 4rem);
+            left: 2rem;
+        }
+    }
+    @include mobile {
+        .nav-link {
+            font-size: 1.5625vw;
+        }
+    }
+    @include near_mobile {
+        top: 5.4rem;
+        &.active {
+            transform: translateY(0);
+        }
+        .nav-link {
+            font-size: 1.4rem;
+            padding: 1rem 0;
+        }
+        &-item {
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 1034;
+    display: none;
+    top: 2rem;
+    right: 2rem;
+    min-width: 3rem;
+    width: 3rem;
+    height: 2rem;
+    transform-origin: center;
+    transition: all 0.3s ease;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    @include near_mobile {
+        display: block;
+        width: 3.4rem;
+        height: 3.4rem;
+        border: 1px solid #000;
+        margin: 0;
+    }
+    span {
+        height: 1px;
+        background-color: #000;
+        right: 8px;
+        position: absolute;
+        transition: all 0.3s ease;
+        &:nth-of-type(1) {
+            top: 10px;
+            width: 17px;
+        }
+        &:nth-of-type(2) {
+            top: 15px;
+            width: 15px;
+        }
+        &:nth-of-type(3) {
+            top: 20px;
+            width: 10px;
+        }
+    }
+    &:hover {
+        opacity: .75;
+        span {
+            width: 17px;
+        }
+    }
+    &.active {
+        span {
+            width: 17px;
+            &:nth-of-type(1) {
+                top: 15px;
+                transform: rotate(135deg);
+            }
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+            &:nth-of-type(3) {
+                top: 15px;
+                transform: rotate(-135deg);
+            }
+        }
+    }
+}
+
+.footer {
+    margin-top: 3.5rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid rgba(#000, .2);
+    .text-description {
+        text-align: center;
+        color: rgba(#000, .6);
+    }
+    .to-top {
+        margin-top: 1.5rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all .3s ease;
+        color: #000;
+        &:hover {
+            opacity: .75;
+        }
+        &::before {
+            content: '';
+            width: 1.5rem;
+            height: 1.5rem;
+            display: block;
+            border: 1px solid #000;
+            border-bottom: 0;
+            border-left: 0;
+            transform: rotate(-45deg);
+        }
+    }
+    &-link {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 4rem;
+        padding-bottom: 3.5rem;
+        li {
+            width: 100%;
+            max-width: calc((100% / 3) - 25px);
+            a {
+                display: block;
+                transition: all .3s ease;
+                &:hover {
+                    opacity: .75;
+                }
+            }
+        }
+        @include near_mobile {
+            li {
+                max-width: calc((100% / 3) - 5px);
+            }
         }
     }
 }
