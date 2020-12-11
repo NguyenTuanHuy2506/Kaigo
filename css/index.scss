@@ -18,7 +18,7 @@ sans-serif;
             position: absolute;
             bottom: 0;
             left: 0;
-            z-index: 1;
+            z-index: 2;
             box-shadow: 0 10px 10px -5px rgba(#000, .5);
         }
         .img-grand {
@@ -202,6 +202,7 @@ sans-serif;
         margin-right: 1rem;
         padding: .5rem 0;
         transition: all .3s ease;
+        font-size: 1.3rem;
         &:hover {
             opacity: .75;
         }
@@ -524,7 +525,7 @@ sans-serif;
                             flex-wrap: wrap;
                             justify-content: space-between;
                             padding-left: 1rem;
-                            a {
+                            div {
                                 width: calc((100% / 8) - 4px);
                                 padding: 1rem 0;
                                 border: 1px solid #F7781E;
@@ -536,10 +537,6 @@ sans-serif;
                                 display: flex;
                                 flex-direction: column;
                                 align-items: center;
-                                transition: all .3s ease;
-                                &:hover {
-                                    opacity: .75;
-                                }
                                 span {
                                     font-size: 2.2rem;
                                     display: block;
@@ -703,6 +700,13 @@ sans-serif;
                             max-width: calc(100% - 75px);
                             margin-left: auto;
                             margin-bottom: 4.5rem;
+                            .clmm {
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                padding: 1rem;
+                                font-size: 1.4rem;
+                            }
                             .column {
                                 p {
                                     margin-top: 2rem;
@@ -717,6 +721,7 @@ sans-serif;
                                     li {
                                         padding: .4rem 0;
                                         line-height: 1.4;
+                                        font-size: 1.4rem;
                                     }
                                     a {
                                         padding-top: 0;
@@ -760,6 +765,9 @@ sans-serif;
         justify-content: center;
         box-shadow: 0 10px 5px -5px #7c796d; //rgba(#000, .5);
         position: relative;
+        @include onIE {
+            height: 7rem;
+        }
         &::after,
         &::before {
             content: '';

@@ -61,8 +61,11 @@ sans-serif;
     &.tiny {
         font-size: 1.4rem;
     }
+    &.bold {
+        font-weight: 700;
+    }
     @include ipadpro {
-        font-size: 1.643vw;
+        font-size: 1.7rem;
     }
     @include mobile {
         font-size: 1.4rem;
@@ -90,6 +93,7 @@ sans-serif;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    position: relative;
     .column {
         width: 1000%;
     }
@@ -130,6 +134,9 @@ sans-serif;
     color: #fff;
     position: relative;
     transition: all .5s ease;
+    @include onIE {
+        height: 5rem;
+    }
     &:hover {
         opacity: .75;
     }
@@ -164,22 +171,14 @@ sans-serif;
     min-height: 5rem;
     display: flex;
     align-items: center;
-    background-color: #F7781E;
+    background-color: #ec8d49;
     position: relative;
     top: 8.5rem;
     left: 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
+    box-shadow: 0 5px 10px -5px rgba(#000, 1);
     transition: all .5s ease;
-    &::after {
-        content: '';
-        width: 100%;
-        height: 1rem;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        box-shadow: 0 10px 10px 0 rgba(#000, .5);
-    }
     &.fixed {
         max-width: calc(100% - 5.4rem);
         position: fixed;
