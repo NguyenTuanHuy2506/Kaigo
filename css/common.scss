@@ -110,6 +110,9 @@ sans-serif;
     font-weight: 700;
     font-size: 2.5rem;
     padding: 0 1.5rem;
+    @include onIE {
+        height: 4rem;
+    }
     @include mobile {
         font-size: 1.6rem;
     }
@@ -177,7 +180,7 @@ sans-serif;
     left: 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
-    box-shadow: 0 5px 10px -5px rgba(#000, 1);
+    box-shadow: 0 5px 20px -5px rgba(#000, 1);
     transition: all .5s ease;
     &.fixed {
         max-width: calc(100% - 5.4rem);
