@@ -1,16 +1,12 @@
 const _navFixed = $('.nav.fixed');
 const _toTop = $('.js-totop');
-const _navLink = $('.nav-link');
+const _navLink = $('.js-nav-link');
 const _vitualMenu = $('.right-content');
 const _hamburger = $('.hamburger');
 
 $(window).on("scroll", function() {
     let _h = $(window).scrollTop();
     _h > 1 ? _navFixed.addClass("active") : _navFixed.removeClass("active");
-    // let _navTop = _fixed.offset().top;
-
-    // console.log(_fixedTop);
-
 });
 
 _navLink.on("click", function(e) {
@@ -18,7 +14,8 @@ _navLink.on("click", function(e) {
     let _target = $(this).attr('href');
     let _offsetTop = $(_target).offset().top;
     _goto(_offsetTop - 40);
-    console.log($(this), $(_target));
+
+    _hamburger.hasClass('active') ? _hamburger.click() : null;
 });
 
 _toTop.on("click", function() {

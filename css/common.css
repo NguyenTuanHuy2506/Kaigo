@@ -48,6 +48,16 @@ figure>img {
     }
 }
 
+.only-sp {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .only-sp {
+        display: block;
+    }
+}
+
 .f-symbol {
     display: inline-block;
     font-weight: 400;
@@ -277,26 +287,9 @@ figure>img {
 }
 
 @media screen and (max-width: 768px) {
-    .nav .nav-link {
-        font-size: 1.5625vw;
-    }
-}
-
-@media screen and (max-width: 767px) {
     .nav {
-        top: 5.4rem;
-    }
-    .nav.active {
-        transform: translateY(0);
-    }
-    .nav .nav-link {
-        font-size: 1.4rem;
-        padding: 1rem 0;
-    }
-    .nav-item {
-        height: auto;
-        flex-direction: column;
-        align-items: flex-start;
+        display: none;
+        user-select: none;
     }
 }
 

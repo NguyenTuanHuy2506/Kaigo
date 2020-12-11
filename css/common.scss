@@ -43,6 +43,13 @@ figure>img {
     }
 }
 
+.only-sp {
+    display: none;
+    @include mobile {
+        display: block;
+    }
+}
+
 $font_noto: 'Noto Sans JP',
 sans-serif;
 .f-symbol {
@@ -235,25 +242,24 @@ sans-serif;
         }
     }
     @include mobile {
-        .nav-link {
-            font-size: 1.5625vw;
-        }
+        display: none;
+        user-select: none;
     }
-    @include near_mobile {
-        top: 5.4rem;
-        &.active {
-            transform: translateY(0);
-        }
-        .nav-link {
-            font-size: 1.4rem;
-            padding: 1rem 0;
-        }
-        &-item {
-            height: auto;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    }
+    // @include near_mobile {
+    //     top: 5.4rem;
+    //     &.active {
+    //         transform: translateY(0);
+    //     }
+    //     .nav-link {
+    //         font-size: 1.4rem;
+    //         padding: 1rem 0;
+    //     }
+    //     &-item {
+    //         height: auto;
+    //         flex-direction: column;
+    //         align-items: flex-start;
+    //     }
+    // }
 }
 
 .hamburger {
