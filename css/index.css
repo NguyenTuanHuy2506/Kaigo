@@ -81,6 +81,15 @@
     transition: all 0.3s ease;
 }
 
+.hero .content .right-content ul li>a.orange-link {
+    background-color: #ec8d49;
+    color: #fff;
+}
+
+.hero .content .right-content ul li>a.orange-link::after {
+    border-left: 6px solid #fff;
+}
+
 .hero .content .right-content ul li>a:hover {
     opacity: 0.75;
 }

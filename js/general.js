@@ -13,7 +13,10 @@ _navLink.on("click", function(e) {
     e.preventDefault();
     let _target = $(this).attr('href');
     let _offsetTop = $(_target).offset().top;
-    _goto(_offsetTop - 40);
+    let _offset = 40;
+    let _width = window.innerWidth;
+    _width < 1024 ? _offset = 0 : null
+    _goto(_offsetTop - _offset);
 
     _hamburger.hasClass('active') ? _hamburger.click() : null;
 });

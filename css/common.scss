@@ -275,9 +275,9 @@ sans-serif;
     transition: all 0.3s ease;
     border: 0;
     outline: none;
-    background-color: transparent;
+    background-color: #fff;
     cursor: pointer;
-    @include near_mobile {
+    @include mobile {
         display: block;
         width: 3.4rem;
         height: 3.4rem;

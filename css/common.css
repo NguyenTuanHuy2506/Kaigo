@@ -306,11 +306,11 @@ figure>img {
     transition: all 0.3s ease;
     border: 0;
     outline: none;
-    background-color: transparent;
+    background-color: #fff;
     cursor: pointer;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .hamburger {
         display: block;
         width: 3.4rem;

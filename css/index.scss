@@ -71,6 +71,13 @@ sans-serif;
                         font-size: 1.4rem;
                         font-weight: 700;
                         transition: all .3s ease;
+                        &.orange-link {
+                            background-color: #ec8d49;
+                            color: #fff;
+                            &::after {
+                                border-left: 6px solid #fff;
+                            }
+                        }
                         &:hover {
                             opacity: .75;
                         }
